@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        registry = “andrespspano/desafio12”
-        registryCredential = 'dockerhub_id'
+        DOCKERHUB_CREDENTIALS = credentials('dockerhub-credentials')
+        DOCKER_IMAGE = 'andrespspano/desafio13:v1'
     }
 
     stages {
