@@ -20,14 +20,16 @@ pipeline {
         stage('Build Image') {
             steps {
                 script {
-                    dockerImage = docker.build("andrespspano/desafio13:${env.BUILD_ID}")
+                    docker.build("${env.DOCKER_IMAGE}")
                 }
             }
         }
         stage('Run Container') {
             steps {
                 script {
-                    dockerImage.run('-d -p 8081:8081')
+                     docker.image("${env.DOCKER_IMAGE}").inside {
+                        sh 'echo "Container is running"'
+                    }    
                 }
             }
         }
