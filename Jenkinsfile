@@ -3,13 +3,13 @@ pipeline {
 
     environment {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub-credentials')
-        DOCKER_IMAGE = 'andrespspano/desafio13:v1'
+        DOCKER_IMAGE = 'andrespedrospano/desafio13:v1'
     }
 
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/andrespspano/desafio12.git'
+                git 'https://github.com/andrespedrospano/desafio13.git'
             }
         }
         stage('Linting') {
